@@ -1,4 +1,6 @@
-package com.example.interview.spring;
+package com.example.interview.spring.circulardepend;
+
+import com.example.interview.spring.circulardepend.A;
 
 /**
  *

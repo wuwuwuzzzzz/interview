@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="a" class="com.example.interview.spring.circulardepend.A" scope="prototype">
+        <property name="b" ref="b"/>
+    </bean>
+
+    <bean id="b" class="com.example.interview.spring.circulardepend.B" scope="prototype">
+        <property name="a" ref="a"/>
+    </bean>
+</beans>
+
