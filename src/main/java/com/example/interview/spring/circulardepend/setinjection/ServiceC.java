@@ -1,4 +1,4 @@
-package com.example.interview.spring.setinjection;
+package com.example.interview.spring.circulardepend.setinjection;
 
 import org.springframework.stereotype.Component;
 

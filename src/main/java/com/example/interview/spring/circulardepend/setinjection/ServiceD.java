@@ -1,6 +1,5 @@
-package com.example.interview.spring.setinjection;
+package com.example.interview.spring.circulardepend.setinjection;
 
-import com.example.interview.spring.constructorinjection.ServiceA;
 import org.springframework.stereotype.Component;
 
 /**
