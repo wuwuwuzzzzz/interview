@@ -6,4 +6,18 @@ package com.example.interview.spring;
  * @date 15:13 2022/12/7
  */
 public class B {
+
+    private A a;
+
+    public A getA() {
+        return a;
+    }
+
+    public void setA(A a) {
+        this.a = a;
+    }
+
+    public B() {
+        System.out.println("--- B create success");
+    }
 }
