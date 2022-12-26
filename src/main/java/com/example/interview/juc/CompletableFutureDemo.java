@@ -22,6 +22,7 @@ class MyThread2 implements Callable<String> {
 }
 
 /**
+ * 为什么要使用future
  *
  * @author wxz
  * @date 15:15 2022/12/26
