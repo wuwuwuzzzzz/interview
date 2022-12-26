@@ -1,6 +1,7 @@
 package com.example.interview.juc;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 
 class MyThread implements Runnable {
 
@@ -14,7 +15,8 @@ class MyThread2 implements Callable<String> {
 
     @Override
     public String call() throws Exception {
-        return null;
+        System.out.println("come in");
+        return "wxz";
     }
 }
 
@@ -25,7 +27,9 @@ class MyThread2 implements Callable<String> {
  */
 public class CompletableFutureDemo {
     public static void main(String[] args) {
-
+        FutureTask<String> futureTask = new FutureTask<>(new MyThread2());
+        Thread t1 = new Thread(futureTask, "t1");
+        t1.start();
     }
 
 }
