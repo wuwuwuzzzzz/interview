@@ -11,6 +11,7 @@ public class ThreadBaseDemo {
         Thread t1 = new Thread(() -> {
 
         }, "t1");
+
         t1.start();
     }
 }
