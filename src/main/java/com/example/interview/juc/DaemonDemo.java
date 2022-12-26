@@ -3,6 +3,8 @@ package com.example.interview.juc;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 守护线程
+ *
  * @author wxz
  * @date 14:47 2022/12/26
  */
@@ -11,7 +13,8 @@ public class DaemonDemo {
         Thread t1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t 开始执行" +
                     (Thread.currentThread().isDaemon() ? "守护线程" : "用户线程"));
-            while (true) {}
+            while (true) {
+            }
         }, "t1");
 
         t1.setDaemon(true);
