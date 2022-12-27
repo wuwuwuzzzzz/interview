@@ -14,7 +14,7 @@ public class FutureApiDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
 
         FutureTask<String> futureTask = new FutureTask<>(() -> {
-            System.out.println(Thread.currentThread().getName() + "\t ------- come in");
+
             TimeUnit.SECONDS.sleep(5);
             return "task over";
         });
