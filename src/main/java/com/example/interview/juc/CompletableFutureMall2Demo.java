@@ -43,7 +43,6 @@ public class CompletableFutureMall2Demo {
             System.out.println(element);
         }
         long endTime = System.currentTimeMillis();
-
         System.out.println("耗时: " + (endTime - startTime) + "毫秒");
 
         long startTime1 = System.currentTimeMillis();
@@ -52,7 +51,6 @@ public class CompletableFutureMall2Demo {
             System.out.println(element);
         }
         long endTime1 = System.currentTimeMillis();
-
         System.out.println("耗时: " + (endTime1 - startTime1) + "毫秒");
     }
 }
