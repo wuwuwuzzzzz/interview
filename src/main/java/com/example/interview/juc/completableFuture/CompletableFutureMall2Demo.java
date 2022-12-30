@@ -1,4 +1,4 @@
-package com.example.interview.juc;
+package com.example.interview.juc.completableFuture;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
