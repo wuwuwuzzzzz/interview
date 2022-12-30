@@ -4,12 +4,21 @@ import java.util.concurrent.TimeUnit;
 
 class Phone {
 
-    public synchronized void sendEmail() {
+    public static synchronized void sendEmail() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("---------- sendEmail");
     }
 
-    public synchronized void sendSms() {
+    public static synchronized void sendSms() {
         System.out.println("---------- sendSMS");
+    }
+
+    public void hello() {
+        System.out.println("---------- hello");
     }
 }
 
@@ -21,10 +30,11 @@ class Phone {
 public class Lock8Demo {
     public static void main(String[] args) {
 
-        Phone phone = new Phone();
+        Phone phone1 = new Phone();
+        Phone phone2 = new Phone();
 
         new Thread(() -> {
-            phone.sendEmail();
+            phone1.sendEmail();
         }, "A").start();
 
         try {
@@ -34,7 +44,7 @@ public class Lock8Demo {
         }
 
         new Thread(() -> {
-            phone.sendSms();
+            phone2.sendSms();
         }, "B").start();
     }
 }
