@@ -1,5 +1,7 @@
 package com.example.interview.juc;
 
+import java.util.concurrent.TimeUnit;
+
 class Phone {
 
     public synchronized void sendEmail() {
@@ -18,5 +20,21 @@ class Phone {
  */
 public class Lock8Demo {
     public static void main(String[] args) {
+
+        Phone phone = new Phone();
+
+        new Thread(() -> {
+            phone.sendEmail();
+        }, "A").start();
+
+        try {
+            TimeUnit.MILLISECONDS.sleep(200);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        new Thread(() -> {
+            phone.sendSms();
+        }, "B").start();
     }
 }
