@@ -1,4 +1,4 @@
-package com.example.interview.juc;
+package com.example.interview.juc.completableFuture;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
