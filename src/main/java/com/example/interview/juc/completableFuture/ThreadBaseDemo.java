@@ -1,4 +1,4 @@
-package com.example.interview.juc;
+package com.example.interview.juc.completableFuture;
 
 /**
  * @author wxz

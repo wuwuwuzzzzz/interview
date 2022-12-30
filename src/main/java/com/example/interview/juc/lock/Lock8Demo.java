@@ -1,4 +1,4 @@
-package com.example.interview.juc;
+package com.example.interview.juc.lock;
 
 import java.util.concurrent.TimeUnit;
 
