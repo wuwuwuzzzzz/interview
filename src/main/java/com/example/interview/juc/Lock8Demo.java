@@ -1,5 +1,16 @@
 package com.example.interview.juc;
 
+class Phone {
+
+    public synchronized void sendEmail() {
+        System.out.println("---------- sendEmail");
+    }
+
+    public synchronized void sendSms() {
+        System.out.println("---------- sendSMS");
+    }
+}
+
 /**
  *
  * @author wxz
@@ -7,6 +18,5 @@ package com.example.interview.juc;
  */
 public class Lock8Demo {
     public static void main(String[] args) {
-
     }
 }
