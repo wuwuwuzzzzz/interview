@@ -16,6 +16,26 @@ public class InterruptDemo {
 
     public static void main(String[] args) {
 
+        Thread t1 = new Thread(() -> {
+            while (true) {
+                if (Thread.currentThread().isInterrupted()) {
+                    System.out.println(Thread.currentThread().getName() + "\t isInterrupted被修改位true，程序停止");
+                    break;
+                }
+                System.out.println("hello interrupted");
+            }
+        }, "t1");
+        t1.start();
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        new Thread(() -> {
+            t1.interrupt();
+        }, "t2").start();
     }
 
     private static void m2() {
