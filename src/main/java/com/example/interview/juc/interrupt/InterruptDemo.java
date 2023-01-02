@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- *
  * @author wxz
  * @date 13:59 2023/1/2
  */
@@ -28,7 +27,7 @@ public class InterruptDemo {
         t1.start();
 
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -38,6 +37,12 @@ public class InterruptDemo {
         }, "t2").start();
     }
 
+    /**
+     * atomicBoolean打断线程
+     *
+     * @author wxz
+     * @date 14:53 2023/1/2
+     */
     private static void m2() {
         new Thread(() -> {
             while (true) {
@@ -50,7 +55,7 @@ public class InterruptDemo {
         }, "t1").start();
 
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -60,6 +65,12 @@ public class InterruptDemo {
         }, "t2").start();
     }
 
+    /**
+     * volatile停止线程
+     *
+     * @author wxz
+     * @date 14:52 2023/1/2
+     */
     private static void m1() {
         new Thread(() -> {
             while (true) {
@@ -72,7 +83,7 @@ public class InterruptDemo {
         }, "t1").start();
 
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
