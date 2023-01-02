@@ -13,6 +13,6 @@ public class Interrupt4Demo {
         Thread.currentThread().interrupt();
         System.out.println("----------- 2");
         System.out.println(Thread.currentThread().getName() + "\t" + Thread.interrupted());
-
+        System.out.println(Thread.currentThread().getName() + "\t" + Thread.interrupted());
     }
 }
