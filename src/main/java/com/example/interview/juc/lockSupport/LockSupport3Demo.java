@@ -13,7 +13,7 @@ public class LockSupport3Demo {
         Thread t1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t -------- come in");
             LockSupport.park();
-
+            System.out.println(Thread.currentThread().getName() + "\t -------- 被唤醒");
         }, "t1");
         t1.start();
 
