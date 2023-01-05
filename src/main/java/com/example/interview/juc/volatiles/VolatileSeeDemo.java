@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class VolatileSeeDemo {
 
-    static boolean flag = true;
+    static volatile boolean flag = true;
 
     public static void main(String[] args) {
 
