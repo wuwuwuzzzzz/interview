@@ -18,7 +18,7 @@ public class VolatileSeeDemo {
             while (flag) {
 
             }
-            System.out.println(Thread.currentThread().getName() + "\t  -------- 程序停止 ");
+
         }, "t1").start();
 
         try {
