@@ -4,9 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 class MyNumber {
 
-    int number;
+    volatile int number;
 
-    public synchronized void addPlusPlus() {
+    public void addPlusPlus() {
         number++;
     }
 }
