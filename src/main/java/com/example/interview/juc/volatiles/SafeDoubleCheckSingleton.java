@@ -1,26 +1,34 @@
 package com.example.interview.juc.volatiles;
 
 /**
- *
  * @author wxz
  * @date 10:36 2023/1/9
  */
 public class SafeDoubleCheckSingleton {
 
-    private static SafeDoubleCheckSingleton singleton;
+    /**
+     * 通过volatile声明，实现线程安全的延迟初始化
+     *
+     * @author wxz
+     * @date 10:44 2023/1/9
+     */
+    private volatile static SafeDoubleCheckSingleton singleton;
 
     /**
      * 私有化构造方法
+     *
      * @author wxz
      * @date 10:39 2023/1/9
      */
-    private SafeDoubleCheckSingleton() {}
+    private SafeDoubleCheckSingleton() {
+    }
 
     /**
      * 双重锁设计
+     *
+     * @return com.example.interview.juc.volatiles.SafeDoubleCheckSingleton
      * @author wxz
      * @date 10:39 2023/1/9
-     * @return com.example.interview.juc.volatiles.SafeDoubleCheckSingleton
      */
     public static SafeDoubleCheckSingleton getInstance() {
         if (singleton == null) {
