@@ -14,7 +14,7 @@ public class VolatileSeeDemo {
     public static void main(String[] args) {
 
         new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + "\t  -------- come in");
+
             while (flag) {
 
             }
