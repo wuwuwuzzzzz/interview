@@ -1,5 +1,7 @@
 package com.example.interview.juc.cas;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  *
  * @author wxz
@@ -7,6 +9,8 @@ package com.example.interview.juc.cas;
  */
 public class CasDemo {
     public static void main(String[] args) {
-
+        AtomicInteger count = new AtomicInteger(5);
+        System.out.println(count.compareAndSet(5, 2023) + "\t" + count.get());
+        System.out.println(count.compareAndSet(6, 2023) + "\t" + count.get());
     }
 }
