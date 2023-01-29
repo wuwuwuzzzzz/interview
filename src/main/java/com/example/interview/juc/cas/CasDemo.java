@@ -12,5 +12,6 @@ public class CasDemo {
         AtomicInteger count = new AtomicInteger(5);
         System.out.println(count.compareAndSet(5, 2023) + "\t" + count.get());
         System.out.println(count.compareAndSet(6, 2023) + "\t" + count.get());
+        count.getAndIncrement();
     }
 }
