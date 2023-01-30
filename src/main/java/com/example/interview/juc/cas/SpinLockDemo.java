@@ -7,6 +7,5 @@ package com.example.interview.juc.cas;
  */
 public class SpinLockDemo {
     public static void main(String[] args) {
-
     }
 }
