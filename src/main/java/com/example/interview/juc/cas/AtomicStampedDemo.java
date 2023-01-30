@@ -30,6 +30,6 @@ public class AtomicStampedDemo {
         b = stampedReference.compareAndSet(book, book2, stampedReference.getStamp(), stampedReference.getStamp() + 1);
         System.out.println(b + "\t" + stampedReference.getReference() + "\t" + stampedReference.getStamp());
         b = stampedReference.compareAndSet(book2, book, stampedReference.getStamp(), stampedReference.getStamp() + 1);
-        System.out.println(b + "\t" + stampedReference.getReference() + "\t" + stampedReference.getStamp());
+
     }
 }
