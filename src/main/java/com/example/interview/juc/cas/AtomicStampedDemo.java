@@ -1,5 +1,17 @@
 package com.example.interview.juc.cas;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class Book {
+    private int id;
+    private String bookName;
+}
+
 /**
  *
  * @author wxz
