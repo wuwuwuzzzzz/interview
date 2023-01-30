@@ -26,5 +26,6 @@ public class AtomicReferenceDemo {
         User li4 = new User("li4", 28);
         atomicReference.set(z3);
         System.out.println(atomicReference.compareAndSet(z3, li4) + "\t" + atomicReference.get());
+        System.out.println(atomicReference.compareAndSet(z3, li4) + "\t" + atomicReference.get());
     }
 }
