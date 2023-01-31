@@ -44,6 +44,6 @@ public class AtomicIntegerDemo {
             throw new RuntimeException(e);
         }
 
-        System.out.println(Thread.currentThread().getName() + "\t" + myNumber.counter.get());
+
     }
 }
