@@ -15,6 +15,16 @@ class BankAccount {
 
     AtomicIntegerFieldUpdater<BankAccount> fieldUpdater =
         AtomicIntegerFieldUpdater.newUpdater(BankAccount.class, "money");
+
+    /**
+     * 不加synchronized，保证高性能原子性
+     *
+     * @author wxz
+     * @date 14:55 2023/1/31
+     */
+    public void transMoney(BankAccount bankAccount) {
+        fieldUpdater.getAndIncrement(bankAccount);
+    }
 }
 
 /**
@@ -31,7 +41,8 @@ public class AtomicIntegerFieldUpdaterDemo {
             new Thread(() -> {
                 try {
                     for (int j = 0; j < 1000; j++) {
-                        account.add();
+                        //account.add();
+                        account.transMoney(account);
                     }
                 } finally {
                     countDownLatch.countDown();
