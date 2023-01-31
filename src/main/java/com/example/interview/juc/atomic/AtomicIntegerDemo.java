@@ -1,10 +1,9 @@
 package com.example.interview.juc.atomic;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-class MyNumber{
+class MyNumber {
     AtomicInteger counter = new AtomicInteger();
 
     public void addPlus() {
@@ -13,7 +12,6 @@ class MyNumber{
 }
 
 /**
- *
  * @author wxz
  * @date 10:32 2023/1/31
  */
