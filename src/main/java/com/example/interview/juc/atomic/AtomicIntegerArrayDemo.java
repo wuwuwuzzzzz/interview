@@ -15,5 +15,8 @@ public class AtomicIntegerArrayDemo {
         for (int i = 0; i < array.length(); i++) {
             System.out.println(array.get(i));
         }
+
+        int i = array.getAndSet(0, 2022);
+        System.out.println(i + "\t" + array.get(0));
     }
 }
