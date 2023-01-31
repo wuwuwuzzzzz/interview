@@ -1,5 +1,7 @@
 package com.example.interview.juc.atomic;
 
+import java.util.concurrent.atomic.AtomicIntegerArray;
+
 /**
  *
  * @author wxz
@@ -8,5 +10,10 @@ package com.example.interview.juc.atomic;
 public class AtomicIntegerArrayDemo {
     public static void main(String[] args) {
 
+        AtomicIntegerArray array = new AtomicIntegerArray(5);
+
+        for (int i = 0; i < array.length(); i++) {
+            System.out.println(array.get(i));
+        }
     }
 }
