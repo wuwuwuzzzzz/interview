@@ -3,7 +3,12 @@ package com.example.interview.juc.atomic;
 import java.util.concurrent.atomic.AtomicInteger;
 
 class MyNumber{
+
     AtomicInteger counter = new AtomicInteger();
+
+    public void addPlus() {
+        counter.getAndIncrement();
+    }
 }
 
 /**
