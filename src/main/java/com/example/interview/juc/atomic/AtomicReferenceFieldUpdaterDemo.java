@@ -20,7 +20,7 @@ class MyVar {
             }
             System.out.println(Thread.currentThread().getName() + "\t" + "end");
         } else {
-
+            System.out.println(Thread.currentThread().getName() + "\t" + "已经有线程在初始化工作...");
         }
     }
 }
