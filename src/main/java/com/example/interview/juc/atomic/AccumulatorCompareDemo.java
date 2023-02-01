@@ -75,5 +75,71 @@ public class AccumulatorCompareDemo {
 
         endTime = System.currentTimeMillis();
         System.out.println(endTime - startTime + "\t" + clickNumber.number);
+
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < 50; i++) {
+            new Thread(() -> {
+                try {
+                    for (int j = 0; j < 100 * _1W; j++) {
+                        clickNumber.clickByAtomicLong();
+                    }
+                } finally {
+                    countDownLatch2.countDown();
+                }
+            },String.valueOf(i)).start();
+        }
+
+        try {
+            countDownLatch2.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        endTime = System.currentTimeMillis();
+        System.out.println(endTime - startTime + "\t" + clickNumber.atomicLong.get());
+
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < 50; i++) {
+            new Thread(() -> {
+                try {
+                    for (int j = 0; j < 100 * _1W; j++) {
+                        clickNumber.clickByLongAdder();
+                    }
+                } finally {
+                    countDownLatch3.countDown();
+                }
+            },String.valueOf(i)).start();
+        }
+
+        try {
+            countDownLatch3.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        endTime = System.currentTimeMillis();
+        System.out.println(endTime - startTime + "\t" + clickNumber.longAdder.sum());
+
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < 50; i++) {
+            new Thread(() -> {
+                try {
+                    for (int j = 0; j < 100 * _1W; j++) {
+                        clickNumber.clickByLongAccumulator();
+                    }
+                } finally {
+                    countDownLatch4.countDown();
+                }
+            },String.valueOf(i)).start();
+        }
+
+        try {
+            countDownLatch4.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        endTime = System.currentTimeMillis();
+        System.out.println(endTime - startTime + "\t" + clickNumber.longAccumulator.get());
     }
 }
