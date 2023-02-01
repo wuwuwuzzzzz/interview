@@ -1,5 +1,6 @@
 package com.example.interview.juc.atomic;
 
+import java.util.concurrent.atomic.LongAccumulator;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
@@ -17,5 +18,12 @@ public class LongAdderApiDemo {
         longAdder.increment();
 
         System.out.println(longAdder.sum());
+
+        LongAccumulator longAccumulator = new LongAccumulator(Long::sum, 0);
+
+        longAccumulator.accumulate(1);
+        longAccumulator.accumulate(3);
+
+        System.out.println(longAccumulator.get());
     }
 }
