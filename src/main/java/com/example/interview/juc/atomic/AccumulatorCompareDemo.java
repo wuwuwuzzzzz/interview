@@ -54,10 +54,26 @@ public class AccumulatorCompareDemo {
         CountDownLatch countDownLatch3 = new CountDownLatch(threadNumber);
         CountDownLatch countDownLatch4 = new CountDownLatch(threadNumber);
 
-        new Thread(() -> {
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < 50; i++) {
+            new Thread(() -> {
+                try {
+                    for (int j = 0; j < 100 * _1W; j++) {
+                        clickNumber.clickBySynchronized();
+                    }
+                } finally {
+                    countDownLatch1.countDown();
+                }
+            },String.valueOf(i)).start();
+        }
 
-        }).start();
+        try {
+            countDownLatch1.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
-        System.out.println(endTime - startTime);
+        endTime = System.currentTimeMillis();
+        System.out.println(endTime - startTime + "\t" + clickNumber.number);
     }
 }
