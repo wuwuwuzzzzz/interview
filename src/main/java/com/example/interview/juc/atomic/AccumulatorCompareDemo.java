@@ -140,6 +140,6 @@ public class AccumulatorCompareDemo {
         }
 
         endTime = System.currentTimeMillis();
-        System.out.println(endTime - startTime + "\t" + clickNumber.longAccumulator.get());
+
     }
 }
