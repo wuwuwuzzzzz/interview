@@ -24,6 +24,6 @@ public class LongAdderApiDemo {
         longAccumulator.accumulate(1);
         longAccumulator.accumulate(3);
 
-
+        System.out.println(longAccumulator.get());
     }
 }
