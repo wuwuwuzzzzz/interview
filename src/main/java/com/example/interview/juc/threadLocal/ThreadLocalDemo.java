@@ -10,10 +10,22 @@ class House {
     public synchronized void saleHouse() {
         ++saleCount;
     }
+
+//    ThreadLocal<Integer> saleVolume = new ThreadLocal<Integer>() {
+//        @Override
+//        protected Integer initialValue() {
+//            return 0;
+//        }
+//    };
+
+    ThreadLocal<Integer> saleVolume = ThreadLocal.withInitial(() -> 0);
+
+    public void saleVolumeByThreadLocal() {
+
+    }
 }
 
 /**
- *
  * @author wxz
  * @date 21:18 2023/2/5
  */
@@ -25,10 +37,12 @@ public class ThreadLocalDemo {
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 int size = new Random().nextInt(5);
-                System.out.println(size);
+//                System.out.println(size);
                 for (int j = 0; j < size; j++) {
                     house.saleHouse();
+                    house.saleVolumeByThreadLocal();
                 }
+                System.out.println(Thread.currentThread().getName() + "\t" + house.saleVolume.get());
             }, String.valueOf(i)).start();
         }
 
