@@ -21,7 +21,7 @@ class House {
     ThreadLocal<Integer> saleVolume = ThreadLocal.withInitial(() -> 0);
 
     public void saleVolumeByThreadLocal() {
-
+        saleVolume.set(1 + saleVolume.get());
     }
 }
 
