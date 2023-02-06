@@ -27,10 +27,14 @@ public class ThreadLocalDemo2 {
         try {
             for (int i = 0; i < 10; i++) {
                 executorService.submit(() -> {
-                    Integer beforeInt = myData.threadLocal.get();
-                    myData.add();
-                    Integer afterInt = myData.threadLocal.get();
-                    System.out.println(Thread.currentThread().getName() + "\t" + beforeInt + "\t" + afterInt);
+                    try {
+                        Integer beforeInt = myData.threadLocal.get();
+                        myData.add();
+                        Integer afterInt = myData.threadLocal.get();
+                        System.out.println(Thread.currentThread().getName() + "\t" + beforeInt + "\t" + afterInt);
+                    } finally {
+                        myData.threadLocal.remove();
+                    }
                 });
             }
         } catch (Exception e) {
