@@ -38,11 +38,15 @@ public class ThreadLocalDemo {
             new Thread(() -> {
                 int size = new Random().nextInt(5);
 //                System.out.println(size);
-                for (int j = 0; j < size; j++) {
-                    house.saleHouse();
-                    house.saleVolumeByThreadLocal();
+                try {
+                    for (int j = 0; j < size; j++) {
+                        house.saleHouse();
+                        house.saleVolumeByThreadLocal();
+                    }
+                    System.out.println(Thread.currentThread().getName() + "\t" + house.saleVolume.get());
+                } finally {
+                    house.saleVolume.remove();
                 }
-                System.out.println(Thread.currentThread().getName() + "\t" + house.saleVolume.get());
             }, String.valueOf(i)).start();
         }
 
