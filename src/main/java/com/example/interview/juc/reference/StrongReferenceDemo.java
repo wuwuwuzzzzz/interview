@@ -13,7 +13,7 @@ class MyObject {
  * @author wxz
  * @date 10:48 2023/2/6
  */
-public class ReferenceDemo {
+public class StrongReferenceDemo {
     public static void main(String[] args) {
 
         MyObject object = new MyObject();
