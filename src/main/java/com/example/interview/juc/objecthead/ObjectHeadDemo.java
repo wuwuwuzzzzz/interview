@@ -8,5 +8,8 @@ package com.example.interview.juc.objecthead;
 public class ObjectHeadDemo {
     public static void main(String[] args) {
 
+        Object obj = new Object();
+
+        System.out.println(obj);
     }
 }
