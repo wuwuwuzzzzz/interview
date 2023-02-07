@@ -10,6 +10,10 @@ public class ObjectHeadDemo {
 
         Object obj = new Object();
 
-        System.out.println(obj);
+        System.out.println(obj.hashCode());
+
+        synchronized (obj) {}
+
+
     }
 }
