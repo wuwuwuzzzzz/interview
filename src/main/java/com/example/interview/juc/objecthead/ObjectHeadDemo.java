@@ -14,6 +14,6 @@ public class ObjectHeadDemo {
 
         synchronized (obj) {}
 
-
+        System.gc();
     }
 }
