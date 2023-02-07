@@ -32,6 +32,13 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
+
+		<!--	分析对象在JVM的大小和布局	-->
+		<dependency>
+			<groupId>org.openjdk.jol</groupId>
+			<artifactId>jol-core</artifactId>
+			<version>0.16</version>
+		</dependency>
 	</dependencies>
 
 	<build>
