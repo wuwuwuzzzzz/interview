@@ -1,5 +1,8 @@
 package com.example.interview.juc.aqs;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  *
  * @author wxz
@@ -7,6 +10,15 @@ package com.example.interview.juc.aqs;
  */
 public class AqsDemo {
     public static void main(String[] args) {
+
+        Lock lock = new ReentrantLock();
+
+        lock.lock();
+        try {
+
+        } finally {
+          lock.unlock();
+        }
 
     }
 }
