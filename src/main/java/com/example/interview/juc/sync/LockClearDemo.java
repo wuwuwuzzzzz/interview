@@ -10,8 +10,13 @@ public class LockClearDemo {
     static Object objectLock = new Object();
 
     public void m1() {
-        synchronized (objectLock) {
-            System.out.println("哈哈哈哈");
+//        synchronized (objectLock) {
+//            System.out.println("哈哈哈哈");
+//        }
+        // 锁消除问题 JIT编译器会无视它
+        Object o = new Object();
+        synchronized (o) {
+            System.out.println("哈哈哈哈" + "\t" + o.hashCode() + "\t" + objectLock.hashCode());
         }
     }
 
