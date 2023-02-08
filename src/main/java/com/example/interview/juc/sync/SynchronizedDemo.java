@@ -2,6 +2,8 @@ package com.example.interview.juc.sync;
 
 import org.openjdk.jol.info.ClassLayout;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  *
  * @author wxz
@@ -10,10 +12,17 @@ import org.openjdk.jol.info.ClassLayout;
 public class SynchronizedDemo {
     public static void main(String[] args) {
 
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         Object o = new Object();
 
-        System.out.println(o.hashCode());
-
-        System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        synchronized (o) {
+            System.out.println(o.hashCode());
+            System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        }
     }
 }
