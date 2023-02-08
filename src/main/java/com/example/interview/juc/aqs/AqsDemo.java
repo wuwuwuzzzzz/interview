@@ -17,7 +17,7 @@ public class AqsDemo {
         try {
 
         } finally {
-
+          lock.unlock();
         }
 
     }
