@@ -27,7 +27,7 @@ git clone git@github.com:wuwuwuzzzzz/interview.git
 
 👤 **wxz**
 
-* blog: [](https://wuxingzzz.top)
+* blog: (https://wuxingzzz.top)
 * Github: [@wuwuwuzzzzz](https://github.com/wuwuwuzzzzz)
 
 ## 🤝 Contributing
