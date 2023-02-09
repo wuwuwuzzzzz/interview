@@ -25,7 +25,7 @@ git clone git@github.com:wuwuwuzzzzz/interview.git
 
 ## Author
 
-👤 **wxzzz**
+👤 **wxz**
 
 * blog: https://wuxingzzz.top
 * Github: [@wuwuwuzzzzz](https://github.com/wuwuwuzzzzz)
