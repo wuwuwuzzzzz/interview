@@ -15,7 +15,7 @@ public class AqsDemo {
 
         lock.lock();
         try {
-            System.out.println(Thread.currentThread());
+
         } finally {
             lock.unlock();
         }
