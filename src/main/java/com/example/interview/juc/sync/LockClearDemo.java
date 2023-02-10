@@ -16,7 +16,7 @@ public class LockClearDemo {
         // 锁消除问题 JIT编译器会无视它
         Object o = new Object();
         synchronized (o) {
-            System.out.println("哈哈哈哈" + "\t" + o.hashCode() + "\t" + objectLock.hashCode());
+            System.out.println("哈哈哈" + "\t" + o.hashCode() + "\t" + objectLock.hashCode());
         }
     }
 
