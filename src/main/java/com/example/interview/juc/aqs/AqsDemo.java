@@ -15,7 +15,7 @@ public class AqsDemo {
 
         lock.lock();
         try {
-
+            System.out.println("哈哈哈啊哈哈");
         } finally {
             lock.unlock();
         }
