@@ -96,7 +96,7 @@ public class StampedLockDemo {
             }
         }
 
-
+        System.out.println(Thread.currentThread().getName() + "finally value: " + result);
     }
 
     public static void main(String[] args) {
