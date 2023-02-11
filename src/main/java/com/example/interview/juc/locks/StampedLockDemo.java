@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.StampedLock;
 
 /**
- *
  * @author wxz
  * @date 18:18 2023/2/11
  */
@@ -29,7 +28,43 @@ public class StampedLockDemo {
         System.out.println("写线程修改结束");
     }
 
+    /**
+     * 悲观读，读没有完成的时候写锁无法获得锁
+     *
+     * @author wxz
+     * @date 18:32 2023/2/11
+     */
     public void read() {
+
+        long stamp = stampedLock.readLock();
+
+        System.out.println("come in");
+
+        for (int i = 0; i < 4; i++) {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("正在读取中...");
+        }
+
+        try {
+            int result = number;
+            System.out.println(result);
+        } finally {
+            stampedLock.unlockRead(stamp);
+        }
+
+    }
+
+    /**
+     * 乐观读
+     *
+     * @author wxz
+     * @date 18:33 2023/2/11
+     */
+    public void read2() {
 
         long stamp = stampedLock.readLock();
 
