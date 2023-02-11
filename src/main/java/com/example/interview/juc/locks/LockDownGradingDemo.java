@@ -1,5 +1,7 @@
 package com.example.interview.juc.locks;
 
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 /**
  *
  * @author wxz
@@ -8,5 +10,18 @@ package com.example.interview.juc.locks;
 public class LockDownGradingDemo {
     public static void main(String[] args) {
 
+        ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+
+        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
+
+        ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
+
+        writeLock.lock();
+        System.out.println("写入");
+        writeLock.unlock();
+
+        readLock.lock();
+        System.out.println("读取");
+        readLock.unlock();
     }
 }
