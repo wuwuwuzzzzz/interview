@@ -70,5 +70,13 @@ public class StampedLockDemo {
         new Thread(() -> {
             stampedLockDemo.write();
         }, "writeThread").start();
+
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(number);
     }
 }
