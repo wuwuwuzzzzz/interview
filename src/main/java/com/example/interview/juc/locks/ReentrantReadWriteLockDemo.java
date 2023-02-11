@@ -17,7 +17,7 @@ class MyResource {
     ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 
     public void write(String key, String value) {
-        lock.lock();
+        readWriteLock.writeLock().lock();
         try {
             System.out.println(Thread.currentThread().getName() + "\t" + "正在写入");
             map.put(key, value);
@@ -28,12 +28,12 @@ class MyResource {
             }
             System.out.println(Thread.currentThread().getName() + "\t" + "写入完成");
         } finally {
-          lock.unlock();
+            readWriteLock.writeLock().unlock();
         }
     }
 
     public void read(String key) {
-        lock.lock();
+        readWriteLock.readLock().lock();
         try {
             System.out.println(Thread.currentThread().getName() + "\t" + "正在读取");
             String result = map.get(key);
@@ -44,7 +44,7 @@ class MyResource {
             }
             System.out.println(Thread.currentThread().getName() + "\t" + "完成读取");
         } finally {
-          lock.unlock();
+            readWriteLock.readLock().unlock();
         }
 
     }
