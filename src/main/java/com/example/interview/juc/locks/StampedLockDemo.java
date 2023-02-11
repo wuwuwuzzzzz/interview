@@ -59,16 +59,20 @@ public class StampedLockDemo {
     }
 
     /**
-     * 乐观读
+     * 乐观读，读的过程也允许获取写锁介入
      *
      * @author wxz
      * @date 18:33 2023/2/11
      */
-    public void read2() {
+    public void tryOptimisticRead() {
 
-        long stamp = stampedLock.readLock();
+        long stamp = stampedLock.tryOptimisticRead();
 
-        System.out.println("come in");
+        int result = number;
+
+        // 故意间隔4秒，很乐观地认为读m没有其他线程修改过number值，具体靠判断
+        System.out.println(
+            "4秒前stampedLock.validate方法值(true无修改，false有修改)" + "\t" + stampedLock.validate(stamp));
 
         for (int i = 0; i < 4; i++) {
             try {
@@ -76,42 +80,65 @@ public class StampedLockDemo {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("正在读取中...");
+            System.out.println(Thread.currentThread()
+                .getName() + "\t" + "正在读取" + i + "秒后stampedLock.validate方法值(true无修改，false有修改)" + stampedLock.validate(stamp));
         }
 
-        try {
-            int result = number;
-            System.out.println(result);
-        } finally {
-            stampedLock.unlockRead(stamp);
+        if (!stampedLock.validate(stamp)) {
+            System.out.println("有人修改过====有写操作");
+            stamp = stampedLock.readLock();
+            try {
+                System.out.println("从乐观读升级为悲观读");
+                result = number;
+                System.out.println("重新悲观读后result: " + result);
+            } finally {
+                stampedLock.unlockRead(stamp);
+            }
         }
+
+        System.out.println(Thread.currentThread().getName() + "finally value: " + result);
 
     }
 
     public static void main(String[] args) {
 
         StampedLockDemo stampedLockDemo = new StampedLockDemo();
+//
+//        new Thread(() -> {
+//            stampedLockDemo.read();
+//        }, "readThread").start();
+//
+//        try {
+//            TimeUnit.SECONDS.sleep(1);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        new Thread(() -> {
+//            stampedLockDemo.write();
+//        }, "writeThread").start();
+//
+//        try {
+//            TimeUnit.SECONDS.sleep(4);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        System.out.println(number);
 
         new Thread(() -> {
-            stampedLockDemo.read();
+            stampedLockDemo.tryOptimisticRead();
         }, "readThread").start();
 
         try {
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
         new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + "come in");
             stampedLockDemo.write();
         }, "writeThread").start();
-
-        try {
-            TimeUnit.SECONDS.sleep(4);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        System.out.println(number);
     }
 }
