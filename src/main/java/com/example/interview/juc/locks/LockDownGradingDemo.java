@@ -16,12 +16,20 @@ public class LockDownGradingDemo {
 
         ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
 
+//        writeLock.lock();
+//        System.out.println("写入");
+//        writeLock.unlock();
+//
+//        readLock.lock();
+//        System.out.println("读取");
+//        readLock.unlock();
+
         writeLock.lock();
         System.out.println("写入");
-        writeLock.unlock();
 
         readLock.lock();
         System.out.println("读取");
+        writeLock.unlock();
         readLock.unlock();
     }
 }
