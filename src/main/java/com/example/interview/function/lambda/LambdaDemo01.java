@@ -20,12 +20,7 @@ public class LambdaDemo01 {
         //            System.out.println("新线程中run方法被执行了");
         //        }).start();
 
-        int i = calculateNum(new IntBinaryOperator() {
-            @Override
-            public int applyAsInt(int left, int right) {
-                return left + right;
-            }
-        });
+        int i = calculateNum((int left, int right) -> left + right);
         System.out.println(i);
     }
 
