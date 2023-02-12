@@ -31,12 +31,7 @@ public class LambdaDemo01 {
         //        Integer integer = typeConver(String::length);
         //        System.out.println(integer);
 
-        forEachArray(new IntConsumer() {
-            @Override
-            public void accept(int value) {
-                System.out.println(value);
-            }
-        });
+        forEachArray(value -> System.out.println(value));
     }
 
     public static void forEachArray(IntConsumer consumer) {
