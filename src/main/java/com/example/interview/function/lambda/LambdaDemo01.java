@@ -27,7 +27,8 @@ public class LambdaDemo01 {
 
         //        printNum(value -> value % 2 == 0);
 
-
+        Integer integer = typeConver(String::length);
+        System.out.println(integer);
     }
 
     public static <R> R typeConver(Function<String, R> fn) {
