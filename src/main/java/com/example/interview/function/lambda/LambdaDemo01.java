@@ -31,7 +31,7 @@ public class LambdaDemo01 {
         //        Integer integer = typeConver(String::length);
         //        System.out.println(integer);
 
-
+        forEachArray(System.out::println);
     }
 
     public static void forEachArray(IntConsumer consumer) {
