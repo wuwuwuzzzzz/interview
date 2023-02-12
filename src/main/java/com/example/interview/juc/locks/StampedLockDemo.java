@@ -102,6 +102,7 @@ public class StampedLockDemo {
     public static void main(String[] args) {
 
         StampedLockDemo stampedLockDemo = new StampedLockDemo();
+
 //
 //        new Thread(() -> {
 //            stampedLockDemo.read();
