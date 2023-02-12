@@ -1,5 +1,6 @@
 package com.example.interview.function.lambda;
 
+import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntPredicate;
 
@@ -24,7 +25,15 @@ public class LambdaDemo01 {
         //        int i = calculateNum((int left, int right) -> left + right);
         //        System.out.println(i);
 
-//        printNum(value -> value % 2 == 0);
+        //        printNum(value -> value % 2 == 0);
+
+
+    }
+
+    public static <R> R typeConver(Function<String, R> fn) {
+        String str = "12345";
+        R result = fn.apply(str);
+        return result;
     }
 
     public static int calculateNum(IntBinaryOperator operation) {
