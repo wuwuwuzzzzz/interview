@@ -34,7 +34,7 @@ public class LambdaDemo01 {
         forEachArray(new IntConsumer() {
             @Override
             public void accept(int value) {
-                System.out.println(value);
+
             }
         });
     }
