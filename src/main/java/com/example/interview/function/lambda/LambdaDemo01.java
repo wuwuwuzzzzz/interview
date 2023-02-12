@@ -2,6 +2,7 @@ package com.example.interview.function.lambda;
 
 import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
+import java.util.function.IntConsumer;
 import java.util.function.IntPredicate;
 
 /**
@@ -27,8 +28,15 @@ public class LambdaDemo01 {
 
         //        printNum(value -> value % 2 == 0);
 
-        Integer integer = typeConver(String::length);
-        System.out.println(integer);
+//        Integer integer = typeConver(String::length);
+        //        System.out.println(integer);
+    }
+
+    public static void forEachArray(IntConsumer consumer) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        for (int i : arr) {
+            consumer.accept(i);
+        }
     }
 
     public static <R> R typeConver(Function<String, R> fn) {
