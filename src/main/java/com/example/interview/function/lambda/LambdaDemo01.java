@@ -28,8 +28,15 @@ public class LambdaDemo01 {
 
         //        printNum(value -> value % 2 == 0);
 
-//        Integer integer = typeConver(String::length);
+        //        Integer integer = typeConver(String::length);
         //        System.out.println(integer);
+
+        forEachArray(new IntConsumer() {
+            @Override
+            public void accept(int value) {
+
+            }
+        });
     }
 
     public static void forEachArray(IntConsumer consumer) {
