@@ -14,5 +14,9 @@ public class LambdaDemo01 {
                 System.out.println("新线程中run方法被执行了");
             }
         }).start();
+
+        new Thread(() -> {
+            System.out.println("新线程中run方法被执行了");
+        }).start();
     }
 }
