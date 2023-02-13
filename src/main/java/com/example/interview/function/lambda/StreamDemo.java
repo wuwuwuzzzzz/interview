@@ -70,8 +70,14 @@ public class StreamDemo {
         //                                          .max((o1, o2) -> o1 - o2);
         //        System.out.println(max.get());
 
-        List<String> list = authorList.stream().map(author -> author.getName()).distinct().collect(Collectors.toList());
-        System.out.println(list);
+        //        List<String> list = authorList.stream().map(author -> author.getName()).distinct().collect(Collectors.toList());
+        //        System.out.println(list);
+
+        System.out.println(
+            authorList.stream().flatMap(author -> author.getBooks().stream()).collect(Collectors.toSet()));
+
+        System.out.println(
+            authorList.stream().distinct().collect(Collectors.toMap(author -> author.getName(), author -> author.getBooks())));
 
     }
 
