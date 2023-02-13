@@ -3,8 +3,6 @@ package com.example.interview.function.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 /**
  * @author wxz
@@ -16,17 +14,10 @@ public class StreamDemo {
 
         List<Author> authorList = getAuthors();
 
-        authorList.stream().distinct().filter(new Predicate<Author>() {
-            @Override
-            public boolean test(Author author) {
-                return author.getAge() < 18;
-            }
-        }).forEach(new Consumer<Author>() {
-            @Override
-            public void accept(Author author) {
-                System.out.println(author.getName());
-            }
-        });
+        authorList.stream()
+                  .distinct()
+                  .filter(author -> author.getAge() < 18)
+                  .forEach(author -> System.out.println(author.getName()));
     }
 
     private static List<Author> getAuthors() {
@@ -35,12 +26,11 @@ public class StreamDemo {
         Author author = new Author(1L, "蒙多", 33, "一个从菜刀中明悟哲理的祖安人", null);
         Author author2 = new Author(2L, "亚拉索", 15, "狂风也追逐不上他的思考速度", null);
         Author author3 = new Author(3L, "易", 14, "是这个世界在限制他的思维", null);
-        Author author4 = new Author(4L, "易", 14, "是这个世界在限制他的思维", null);
+        Author author4 = new Author(3L, "易", 14, "是这个世界在限制他的思维", null);
 
         List<Book> book1 = new ArrayList<>();
         List<Book> book2 = new ArrayList<>();
         List<Book> book3 = new ArrayList<>();
-        List<Book> book4 = new ArrayList<>();
 
         book1.add(new Book(1L, "刀的两侧是光明与黑暗", "哲学，爱情", 88, "用一把刀划分了爱恨"));
         book1.add(new Book(2L, "一个人不能死在同一把刀下", "个人成长，爱情", 99, "讲述如何从失败走向成功"));
@@ -56,7 +46,7 @@ public class StreamDemo {
         author.setBooks(book1);
         author2.setBooks(book2);
         author3.setBooks(book3);
-        author4.setBooks(book4);
+        author4.setBooks(book3);
 
         return new ArrayList<>(Arrays.asList(author, author2, author3, author4));
     }
