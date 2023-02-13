@@ -9,7 +9,7 @@ import java.util.function.IntPredicate;
  * @author wxz
  * @date 12:20 2023/2/12
  */
-public class LambdaDemo01 {
+public class LambdaDemo {
     public static void main(String[] args) {
 
         //        new Thread(new Runnable() {
