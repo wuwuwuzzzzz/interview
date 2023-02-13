@@ -33,10 +33,16 @@ public class StreamDemo {
         //                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
         //                  .forEach(author -> System.out.println(author.getAge()));
 
+        //        authorList.stream()
+        //                  .distinct()
+        //                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
+        //                  .limit(2)
+        //                  .forEach(author -> System.out.println(author.getName()));
+
         authorList.stream()
                   .distinct()
                   .sorted((o1, o2) -> o2.getAge() - o1.getAge())
-                  .limit(2)
+                  .skip(1)
                   .forEach(author -> System.out.println(author.getName()));
     }
 
