@@ -3,6 +3,8 @@ package com.example.interview.function.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * @author wxz
@@ -39,11 +41,16 @@ public class StreamDemo {
         //                  .limit(2)
         //                  .forEach(author -> System.out.println(author.getName()));
 
+        //        authorList.stream()
+        //                  .distinct()
+        //                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
+        //                  .skip(1)
+        //                  .forEach(author -> System.out.println(author.getName()));
+
         authorList.stream()
+                  .flatMap((Function<Author, Stream<Book>>)author -> author.getBooks().stream())
                   .distinct()
-                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
-                  .skip(1)
-                  .forEach(author -> System.out.println(author.getName()));
+                  .forEach(book -> System.out.println(book.getName()));
     }
 
     private static List<Author> getAuthors() {
