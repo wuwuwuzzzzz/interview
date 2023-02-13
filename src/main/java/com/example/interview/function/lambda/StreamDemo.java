@@ -45,10 +45,18 @@ public class StreamDemo {
         //                  .skip(1)
         //                  .forEach(author -> System.out.println(author.getName()));
 
+        //        authorList.stream()
+        //                  .flatMap(author -> author.getBooks().stream())
+        //                  .distinct()
+        //                  .forEach(book -> System.out.println(book.getName()));
+
         authorList.stream()
                   .flatMap(author -> author.getBooks().stream())
                   .distinct()
-                  .forEach(book -> System.out.println(book.getName()));
+                  .flatMap(book -> Arrays.stream(book.getCategory().split("，")))
+                  .distinct()
+                  .forEach(System.out::println);
+
     }
 
     private static List<Author> getAuthors() {
