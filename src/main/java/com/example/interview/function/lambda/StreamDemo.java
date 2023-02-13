@@ -3,6 +3,7 @@ package com.example.interview.function.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author wxz
@@ -59,10 +60,15 @@ public class StreamDemo {
 
         //        authorList.stream().map(author -> author.getName()).distinct().forEach(name -> System.out.println(name));
 
-        authorList.stream()
-                  .flatMap(author -> author.getBooks().stream())
-                  .distinct()
-                  .count();
+        //        authorList.stream()
+        //                  .flatMap(author -> author.getBooks().stream())
+        //                  .distinct()
+        //                  .count();
+        Optional<Integer> max = authorList.stream()
+                                          .flatMap(author -> author.getBooks().stream())
+                                          .map(book -> book.getScore())
+                                          .max((o1, o2) -> o1 - o2);
+        System.out.println(max.get());
 
     }
 
