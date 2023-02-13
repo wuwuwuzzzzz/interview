@@ -78,9 +78,10 @@ public class StreamDemo {
         //        System.out.println(
         //            authorList.stream().distinct().collect(Collectors.toMap(author -> author.getName(), author -> author.getBooks())));
 
-        authorList.stream()
-                  .anyMatch(author -> author.getAge() > 29);
+        //        authorList.stream()
+        //                  .anyMatch(author -> author.getAge() > 29);
 
+        System.out.println(authorList.stream().allMatch(author -> author.getAge() > 18));
     }
 
     private static List<Author> getAuthors() {
