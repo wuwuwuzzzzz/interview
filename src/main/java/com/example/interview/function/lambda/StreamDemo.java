@@ -3,12 +3,31 @@ package com.example.interview.function.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 /**
  * @author wxz
  * @date 10:04 2023/2/13
  */
 public class StreamDemo {
+
+    public static void main(String[] args) {
+
+        List<Author> authorList = getAuthors();
+
+        authorList.stream().distinct().filter(new Predicate<Author>() {
+            @Override
+            public boolean test(Author author) {
+                return author.getAge() < 18;
+            }
+        }).forEach(new Consumer<Author>() {
+            @Override
+            public void accept(Author author) {
+                System.out.println(author.getName());
+            }
+        });
+    }
 
     private static List<Author> getAuthors() {
 
