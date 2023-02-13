@@ -91,10 +91,30 @@ public class StreamDemo {
         //                  .findAny()
         //                  .ifPresent(author -> System.out.println(author.getName()));
 
-        authorList.stream()
-                  .sorted(((o1, o2) -> o1.getAge() - o2.getAge()))
-                  .findFirst()
-                  .ifPresent(author -> System.out.println(author.getAge()));
+        //        authorList.stream()
+        //                  .sorted(((o1, o2) -> o1.getAge() - o2.getAge()))
+        //                  .findFirst()
+        //                  .ifPresent(author -> System.out.println(author.getAge()));
+
+        //        int[] arr = {1, 2, 3, 4, 5};
+        //        authorList.stream()
+        //                  .map(author -> author.getAge())
+        //                  .reduce((integer, integer2) -> integer + integer2)
+        //                  .ifPresent(age -> System.out.println(age));
+
+        //        Author author = new Author();
+        //        author.setName("wxz");
+        //        author.setAge(2);
+        //        Optional.of(author)
+        //                .ifPresent(author1 -> System.out.println(author1.getName()));
+        //        System.out.println(Optional.ofNullable(author).filter(author1 -> author1.getAge() > 18));
+
+        //        if (Optional.ofNullable(author).isPresent()) {
+        //            System.out.println(Optional.ofNullable(author).get().getName());
+        //        }
+        //        Optional.ofNullable(author)
+        //                .map(author1 -> author1.getBooks())
+        //                .ifPresent(books -> System.out.println(books));
     }
 
     private static List<Author> getAuthors() {
