@@ -3,7 +3,6 @@ package com.example.interview.function.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author wxz
@@ -73,11 +72,14 @@ public class StreamDemo {
         //        List<String> list = authorList.stream().map(author -> author.getName()).distinct().collect(Collectors.toList());
         //        System.out.println(list);
 
-        System.out.println(
-            authorList.stream().flatMap(author -> author.getBooks().stream()).collect(Collectors.toSet()));
+        //        System.out.println(
+        //            authorList.stream().flatMap(author -> author.getBooks().stream()).collect(Collectors.toSet()));
+        //
+        //        System.out.println(
+        //            authorList.stream().distinct().collect(Collectors.toMap(author -> author.getName(), author -> author.getBooks())));
 
-        System.out.println(
-            authorList.stream().distinct().collect(Collectors.toMap(author -> author.getName(), author -> author.getBooks())));
+        authorList.stream()
+                  .anyMatch(author -> author.getAge() > 29);
 
     }
 
