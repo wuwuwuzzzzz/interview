@@ -85,6 +85,11 @@ public class StreamDemo {
 
         //        authorList.stream()
         //                  .noneMatch(author -> author.getAge() < 100);
+
+        authorList.stream()
+                  .filter(author -> author.getAge() > 18)
+                  .findAny()
+                  .ifPresent(author -> System.out.println(author.getName()));
     }
 
     private static List<Author> getAuthors() {
