@@ -3,7 +3,7 @@ package com.example.interview.function.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author wxz
@@ -64,11 +64,14 @@ public class StreamDemo {
         //                  .flatMap(author -> author.getBooks().stream())
         //                  .distinct()
         //                  .count();
-        Optional<Integer> max = authorList.stream()
-                                          .flatMap(author -> author.getBooks().stream())
-                                          .map(book -> book.getScore())
-                                          .max((o1, o2) -> o1 - o2);
-        System.out.println(max.get());
+        //        Optional<Integer> max = authorList.stream()
+        //                                          .flatMap(author -> author.getBooks().stream())
+        //                                          .map(book -> book.getScore())
+        //                                          .max((o1, o2) -> o1 - o2);
+        //        System.out.println(max.get());
+
+        List<String> list = authorList.stream().map(author -> author.getName()).distinct().collect(Collectors.toList());
+        System.out.println(list);
 
     }
 
