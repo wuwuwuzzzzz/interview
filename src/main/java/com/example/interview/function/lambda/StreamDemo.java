@@ -23,15 +23,21 @@ public class StreamDemo {
         //                  .distinct()
         //                  .forEach(System.out::println);
 
-                authorList.stream()
-                          .distinct()
-                          .sorted()
-                          .forEach(author -> System.out.println(author.getAge()));
+        //        authorList.stream()
+        //                  .distinct()
+        //                  .sorted()
+        //                  .forEach(author -> System.out.println(author.getAge()));
 
-//        authorList.stream()
-//                  .distinct()
-//                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
-//                  .forEach(author -> System.out.println(author.getAge()));
+        //        authorList.stream()
+        //                  .distinct()
+        //                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
+        //                  .forEach(author -> System.out.println(author.getAge()));
+
+        authorList.stream()
+                  .distinct()
+                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
+                  .limit(2)
+                  .forEach(author -> System.out.println(author.getName()));
     }
 
     private static List<Author> getAuthors() {
