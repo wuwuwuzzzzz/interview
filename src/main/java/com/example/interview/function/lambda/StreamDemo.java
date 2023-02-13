@@ -19,9 +19,19 @@ public class StreamDemo {
         //                  .filter(author -> author.getAge() < 18)
         //                  .forEach(author -> System.out.println(author.getName()));
 
-        authorList.stream()
-                  .distinct()
-                  .forEach(System.out::println);
+        //        authorList.stream()
+        //                  .distinct()
+        //                  .forEach(System.out::println);
+
+                authorList.stream()
+                          .distinct()
+                          .sorted()
+                          .forEach(author -> System.out.println(author.getAge()));
+
+//        authorList.stream()
+//                  .distinct()
+//                  .sorted((o1, o2) -> o2.getAge() - o1.getAge())
+//                  .forEach(author -> System.out.println(author.getAge()));
     }
 
     private static List<Author> getAuthors() {

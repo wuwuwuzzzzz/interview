@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Author {
+public class Author implements Comparable<Author> {
 
     /**
      * id
@@ -42,4 +42,9 @@ public class Author {
      * 作品
      */
     private List<Book> books;
+
+    @Override
+    public int compareTo(Author o) {
+        return this.getAge() - o.getAge();
+    }
 }
