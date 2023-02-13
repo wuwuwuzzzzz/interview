@@ -57,7 +57,12 @@ public class StreamDemo {
         //                  .distinct()
         //                  .forEach(System.out::println);
 
-        authorList.stream().map(author -> author.getName()).distinct().forEach(name -> System.out.println(name));
+        //        authorList.stream().map(author -> author.getName()).distinct().forEach(name -> System.out.println(name));
+
+        authorList.stream()
+                  .flatMap(author -> author.getBooks().stream())
+                  .distinct()
+                  .count();
 
     }
 
