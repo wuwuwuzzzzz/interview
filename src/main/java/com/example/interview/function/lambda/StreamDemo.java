@@ -140,10 +140,10 @@ public class StreamDemo {
 
         Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        stream.parallel().peek(integer -> System.out.println(integer + " " + Thread.currentThread().getName()))
-              .filter(num -> num > 5)
-              .reduce(Integer::sum)
-              .ifPresent(System.out::println);
+//        stream.parallel().peek(integer -> System.out.println(integer + " " + Thread.currentThread().getName()))
+//              .filter(num -> num > 5)
+//              .reduce(Integer::sum)
+//              .ifPresent(System.out::println);
     }
 
     private static List<Author> getAuthors() {
