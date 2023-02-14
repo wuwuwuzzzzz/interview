@@ -3,6 +3,7 @@ package com.example.interview.function.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * @author wxz
@@ -137,12 +138,12 @@ public class StreamDemo {
         //                  .map(age -> age + 2)
         //                  .forEach(System.out::println);
 
-//        Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-//
-//        stream.parallel().peek(integer -> System.out.println(integer + " " + Thread.currentThread().getName()))
-//              .filter(num -> num > 5)
-//              .reduce(Integer::sum)
-//              .ifPresent(System.out::println);
+        Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        stream.parallel().peek(integer -> System.out.println(integer + " " + Thread.currentThread().getName()))
+              .filter(num -> num > 5)
+              .reduce(Integer::sum)
+              .ifPresent(System.out::println);
     }
 
     private static List<Author> getAuthors() {
