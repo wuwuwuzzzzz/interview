@@ -125,6 +125,17 @@ public class StreamDemo {
         //        authorList.stream()
         //                  .map(author -> author.getName())
         //            .forEach(sb::append);
+
+        //        authorList.stream()
+        //                  .map(Author::getName)
+        //                  .map(StringBuilder::new);
+
+//        authorList.stream()
+//                  .mapToInt(Author::getAge)
+//                  .map(age -> age + 10)
+//                  .filter(age -> age > 18)
+//                  .map(age -> age + 2)
+//                  .forEach(System.out::println);
     }
 
     private static List<Author> getAuthors() {
