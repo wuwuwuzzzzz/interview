@@ -1,4 +1,4 @@
-package com.example.interview.function.lambda;
+package com.example.interview.lambda;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

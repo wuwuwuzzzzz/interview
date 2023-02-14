@@ -1,4 +1,4 @@
-package com.example.interview.function.lambda;
+package com.example.interview.lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;

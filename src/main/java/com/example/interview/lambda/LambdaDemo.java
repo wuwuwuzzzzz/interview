@@ -1,4 +1,4 @@
-package com.example.interview.function.lambda;
+package com.example.interview.lambda;
 
 import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
