@@ -115,6 +115,16 @@ public class StreamDemo {
         //        Optional.ofNullable(author)
         //                .map(author1 -> author1.getBooks())
         //                .ifPresent(books -> System.out.println(books));
+
+        //        authorList.stream()
+        //                  .filter(
+        //                      ((Predicate<Author>)author -> author.getAge() > 18).and(author -> author.getName().length() > 1))
+        //                  .forEach(System.out::println);
+
+        //        StringBuilder sb = new StringBuilder();
+        //        authorList.stream()
+        //                  .map(author -> author.getName())
+        //            .forEach(sb::append);
     }
 
     private static List<Author> getAuthors() {
