@@ -15,5 +15,7 @@ public class Feature03 {
             matching feature
             previewed in this version
             """;
+
+        System.out.println(text);
     }
 }
