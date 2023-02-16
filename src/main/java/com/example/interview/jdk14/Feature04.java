@@ -14,7 +14,7 @@ public class Feature04 {
 
         while (true) {
             byte[] data = new byte[100];
-            list.add(data);
+
         }
     }
 }
