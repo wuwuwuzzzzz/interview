@@ -9,7 +9,7 @@ public class Feature02 {
 
         String x = "3";
 
-        int num = switch (x) {
+        int num = switch (x)  {
             case "1" -> 1;
             case "2" -> 2;
             case "3" -> 3;
@@ -18,6 +18,6 @@ public class Feature02 {
                 yield 4;
             }
         };
-        System.out.println(num);
+
     }
 }
