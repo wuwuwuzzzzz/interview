@@ -9,16 +9,18 @@ import java.util.stream.Stream;
  * @author wxz
  * @date 10:04 2023/2/13
  */
-public class StreamDemo {
+public class StreamDemo
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         List<Author> authorList = getAuthors();
 
-        //        authorList.stream()
-        //                  .distinct()
-        //                  .filter(author -> author.getAge() < 18)
-        //                  .forEach(author -> System.out.println(author.getName()));
+        authorList.stream()
+                  .distinct()
+                  .filter(author -> author.getAge() < 18)
+                  .forEach(author -> System.out.println(author.getName()));
 
         //        authorList.stream()
         //                  .distinct()
@@ -140,13 +142,16 @@ public class StreamDemo {
 
         Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        stream.parallel().peek(integer -> System.out.println(integer + " " + Thread.currentThread().getName()))
+        stream.parallel()
+              .peek(integer -> System.out.println(integer + " " + Thread.currentThread()
+                                                                        .getName()))
               .filter(num -> num > 5)
               .reduce(Integer::sum)
               .ifPresent(System.out::println);
     }
 
-    private static List<Author> getAuthors() {
+    private static List<Author> getAuthors()
+    {
 
         // 数据初始化
         Author author = new Author(1L, "蒙多", 33, "一个从菜刀中明悟哲理的祖安人", null);
