@@ -1,7 +1,5 @@
 package com.example.interview.jdk14;
 
-import java.util.ArrayList;
-
 /**
  * @author wxz
  * @date 11:46 2023/2/15
@@ -11,7 +9,7 @@ public class Feature02 {
 
         String x = "3";
 
-        int num = switch (x)  {
+        int num = switch (x) {
             case "1" -> 1;
             case "2" -> 2;
             case "3" -> 3;
