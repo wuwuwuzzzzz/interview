@@ -1,5 +1,7 @@
 package com.example.interview.jdk14;
 
+import java.util.ArrayList;
+
 /**
  * @author wxz
  * @date 11:46 2023/2/15
@@ -18,6 +20,6 @@ public class Feature02 {
                 yield 4;
             }
         };
-
+        System.out.println(num);
     }
 }
