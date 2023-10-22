@@ -18,6 +18,5 @@ public class Feature02 {
                 yield 4;
             }
         };
-        System.out.println(num);
     }
 }
